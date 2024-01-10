@@ -23,7 +23,8 @@ export class UsersService {
       login: createUserDto.login,
       password,
       chat: 0,
-      
+      edit: 0,
+      eye: 0,
       salt
     })
   }
