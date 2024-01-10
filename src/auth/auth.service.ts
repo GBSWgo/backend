@@ -1,7 +1,7 @@
-import { Injectable, InternalServerErrorException, NotAcceptableException, NotFoundException, UnauthorizedException } from '@nestjs/common';
-import { JsonWebTokenError, JwtService, TokenExpiredError } from '@nestjs/jwt';
-import { UsersService } from 'src/users/users.service';
-import { LoginByPasswordDto } from './dto/LoginByPasswordDto';
+import { Injectable, InternalServerErrorException, NotAcceptableException, NotFoundException, UnauthorizedException } from '@nestjs/common'
+import { JsonWebTokenError, JwtService, TokenExpiredError } from '@nestjs/jwt'
+import { UsersService } from 'src/users/users.service'
+import { EmailByPasswordDto } from './dto/EmailByPasswordDto'
 
 @Injectable()
 export class AuthService {
@@ -28,8 +28,8 @@ export class AuthService {
     }
   }
 
-  public async loginByPassword (dto: LoginByPasswordDto): Promise<string> {
-    const user = await this.usersService.findUserByLogin(dto.login, true)
+  public async loginByPassword (dto: EmailByPasswordDto): Promise<string> {
+    const user = await this.usersService.findUserByEmail(dto.email, true)
     if (user === undefined) {
       throw new NotFoundException({
         success: false,

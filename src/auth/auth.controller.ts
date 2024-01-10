@@ -3,7 +3,7 @@ import { AuthService } from './auth.service'
 import { ApiCookieAuth, ApiTags } from '@nestjs/swagger'
 import { Response } from 'express'
 import { AuthGuard } from './auth.guard'
-import { LoginByPasswordDto } from './dto/LoginByPasswordDto'
+import { EmailByPasswordDto } from './dto/EmailByPasswordDto'
 
 @ApiTags('auth')
 @Controller('auth')
@@ -28,7 +28,7 @@ export class AuthController {
   }
 
   @Post('/by-pass')
-  public async loginByPassword (@Res({ passthrough: true }) res: Response, @Body() body: LoginByPasswordDto) {
+  public async loginByPassword (@Res({ passthrough: true }) res: Response, @Body() body: EmailByPasswordDto) {
     const token = await this.authService.loginByPassword(body)
     res.cookie('TOKEN', token)
 

@@ -50,6 +50,23 @@ export class UsersService {
     }) ?? undefined
   }
 
+  public async findUserByEmail (email: string, secret = false): Promise<User | undefined> {
+    return await this.users.findOne({
+      where: { email },
+      select: {
+        id: true,
+        email: true,
+        login: true,
+        chat: true,
+        edit: true,
+        eye: true,
+        createdAt: true,
+        password: secret,
+        salt: secret
+      }
+    }) ?? undefined
+  }
+
   public async findAllUser (): Promise<User[]> {
     return await this.users.find()
   }
