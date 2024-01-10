@@ -41,26 +41,19 @@ export class User {
   public readonly password: string
 
   @Column()
-  @IsString()
-  @MaxLength(5000)
-  @IsOptional()
-  @ApiPropertyOptional()
-  public readonly bio?: string
+  @IsInt()
+  @ApiProperty()
+  public readonly chat: number
 
   @Column()
-  @IsString()
+  @IsInt()
   @ApiProperty()
-  public readonly follower: string
+  public readonly edit: number
 
   @Column()
-  @IsString()
+  @IsInt()
   @ApiProperty()
-  public readonly following: string
-
-  @Column()
-  @IsString()
-  @ApiProperty()
-  public readonly avatar: string
+  public readonly eye: number
 
   @Column({
     select: false

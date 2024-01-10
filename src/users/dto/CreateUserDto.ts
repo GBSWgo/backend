@@ -16,10 +16,4 @@ export class CreateUserDto {
   @IsString()
   @ApiProperty()
   public readonly password: string
-
-  @MaxLength(5000)
-  @IsString()
-  @IsOptional()
-  @ApiPropertyOptional()
-  public readonly bio?: string
 }
