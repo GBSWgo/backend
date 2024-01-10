@@ -5,7 +5,7 @@ services:
     # build:
     #   context: .
     #   dockerfile: Dockerfile
-    image: dyaonly/green:latest
+    image: dyaonly/green:nest
     ports:
       - 3000:3000
     depends_on:
