@@ -21,11 +21,9 @@ export class UsersService {
     await this.users.insert({
       email: createUserDto.email,
       login: createUserDto.login,
-      bio: createUserDto.bio,
-      follower: '[]',
-      following: '[]',
-      avatar: 'default.png',
       password,
+      chat: 0,
+      
       salt
     })
   }
@@ -41,11 +39,10 @@ export class UsersService {
         id: true,
         email: true,
         login: true,
-        bio: true,
+        chat: true,
+        edit: true,
+        eye: true,
         createdAt: true,
-        follower: true,
-        following: true,
-        avatar: true,
         password: secret,
         salt: secret
       }
